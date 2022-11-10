@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="shortcut icon" href="#">
+    <title>Ackermann Calculator</title>
+    <style>
+        #loading, #results{
+            display: none;
+        }
+    </style>
+  </head>
+  <body class="bg-dark">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6 mx-auto">
+                  <div class="card card-body text-center mt-5">
+                      <h4 class="heading display-5 pb-3">Kimbweta Ackermann Function Calculator</h4>
+                      <h5>A(m,n)</h5>
+                      <form id="ack-form">
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">m</span>
+                                <input type="number" class="form-control" min="0" id="value1" placeholder="1st argument" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">n</span>
+                                <input type="number" class="form-control" min="0" id="value2" placeholder="2nd argument" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Calculate" class="btn btn-dark btn-block">
+                        </div>
+                      </form>
+
+                      <!-- LOADER -->
+                      <div id="loading">
+                          <img src="img/loading.gif" alt="">
+                      </div>
+
+
+                      <!-- RESULT -->
+                        <div id="results" class="pt-4">
+                            <h5 class="mb-4">Results</h5>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Results</span>
+                                    <input type="number" class="form-control" id="output" disabled>
+                                </div>
+                            </div>
+
+                        </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
