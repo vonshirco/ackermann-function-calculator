@@ -1,3 +1,10 @@
+//Getting UI Variables
+const error = document.getElementById('error');
+const num1 = document.getElementById('value1');
+const num2 = document.getElementById('value2');
+const theOutput = document.getElementById('output');
+const button = document.getElementById('submit-btn');
+
 // Listen for submit
 document.getElementById('ack-form').addEventListener('submit', function(e){
     
@@ -7,27 +14,41 @@ document.getElementById('ack-form').addEventListener('submit', function(e){
     // Show loader
     document.getElementById('loading').style.display = 'block';
 
-    // Set TimeOut
-    setTimeout(calculateResults, 1000);
+    // Clear any value stored
+    theOutput.value = '';
+    error.classList.add('d-none');
+    button.setAttribute('disabled', '')
+
+    // Set TimeOut to compute the Ackermann function
+    setTimeout(calculateResults, 1000);  
     
     e.preventDefault();
+
+    // Check to see if Ackermann function was computed
+    setTimeout(()=> {
+        if (Number.isInteger(parseInt(theOutput.value))) {
+            console.log('okay');        
+           } else {
+            error.innerText = "Too large to represent, try other numbers";  
+            error.classList.remove('d-none')    
+            document.getElementById('loading').style.display = 'none';
+           }
+    }, 2000) 
+
+    setTimeout(()=>{
+        button.removeAttribute('disabled');
+    }, 2000)
 });
 
     // Calculate Results
     function calculateResults(e){
     console.log('Calculating...');
 
-    //Getting UI Variables
-    const  num1 = document.getElementById('value1');
-    const num2 = document.getElementById('value2');
-
-    const theOutput = document.getElementById('output');
-
-    //Calculations
+    //Ackermann Calculations
     const myM = num1.value;
     const myN = num2.value;
 
-   // Compute Ackermann
+   // Compute Ackermann function
    function ack(m,n){
     if (m == 0)
         {
@@ -44,10 +65,13 @@ document.getElementById('ack-form').addEventListener('submit', function(e){
            return n + 1;
        }
    }
+
+   //Store answer in a variable
+   var answer = ack(myM, myN)
    
    //Calling the function
-   theOutput.value = ack(myM, myN);
-
+   theOutput.value = answer; 
+                                   
    // Show results
    document.getElementById('results').style.display = 'block';
 
